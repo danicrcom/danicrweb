@@ -6,8 +6,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "http://localhost:8081",
-  base: "/", // Mantiene rutas relativas
+  site: "https://danicr.com",// Mantiene rutas relativas
   output: "static", // Asegura que la salida sea estática
   integrations: [mdx(), sitemap(), icon()],
   vite: {

@@ -1,14 +1,15 @@
-# Usar Nginx como base
+# Etapa 1: Construcción
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Etapa 2: Servidor web
 FROM nginx:alpine
-
-# Copiar el contenido de la carpeta dist al directorio de Nginx
-COPY dist /usr/share/nginx/html
-
-# Copiar la configuración personalizada de Nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Exponer el puerto 80
-EXPOSE 8081
-
-# Iniciar Nginx
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app/dist .
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
