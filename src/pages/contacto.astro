@@ -1,0 +1,40 @@
+---
+import Contactform from "@components/contactform.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="Contacto" description="Puedes contactar a danicr por multiples medios, aquí se describen algunos de ellos.">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Contacto</Fragment>
+      <Fragment slot="desc">Estoy para ayudarle</Fragment>
+    </Sectionhead>
+
+    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
+      <div>
+        <h2 class="font-medium text-2xl text-gray-800">Contacto Danicr.com</h2>
+        <p class="text-lg leading-relaxed text-slate-500 mt-3">
+          ¿Tienes algo que decir? Estoy aquí para ayudarle. Envíe un correo electrónico o contacteme por teléfono.
+        </p>
+        <div class="mt-5">
+          <div class="flex items-center mt-2 space-x-2 text-gray-600">
+            <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
+            <span>Costa Rica</span>
+          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
+            <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
+              href="mailto:contacto.geraldi@gmail.com"
+              >contacto.geraldi@gmail.com</a
+            >
+          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
+            <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
+              href="https://wa.me/50685607835">+506 8560 7835</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Layout>

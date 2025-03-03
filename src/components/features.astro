@@ -1,0 +1,68 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon/components";
+
+const features = [
+  {
+    title: "Diseño a Medida",
+    description:
+      "Cada web es única y adaptada a tu marca, con un diseño moderno y profesional que impacta desde el primer vistazo.",
+    icon: "bx:bxs-briefcase",
+  },
+  {
+    title: "Optimización SEO",
+    description:
+      "Aumento tu visibilidad en Google con estrategias SEO, mejorando el tráfico y posicionamiento de tu sitio.",
+    icon: "bx:bxs-window-alt",
+  },
+  {
+    title: "Velocidad y Rendimiento",
+    description:
+      " Webs rápidas y optimizadas para que carguen en segundos, mejorando la experiencia de usuario.",
+    icon: "bx:bxs-data",
+  },
+  {
+    title: " Responsive y Accesible",
+    description:
+      "Tu sitio se verá perfecto en móviles, tablets y computadoras, garantizando accesibilidad para todos los usuarios.",
+    icon: "bx:bxs-bot",
+  },
+  {
+    title: "Seguridad y Estabilidad",
+    description:
+      "Implemento buenas prácticas para que tu web sea segura, estable y libre de vulnerabilidades.",
+    icon: "bx:bxs-file-find",
+  },
+  {
+    title: "Soporte y Escalabilidad",
+    description:
+      "Te acompaño después del lanzamiento con mantenimiento y mejoras para que tu web crezca contigo.",
+    icon: "bx:bxs-user",
+  },
+];
+---
+
+<div class="mt-16 md:mt-0">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    ¿Por qué Elegirme para Crear tu Web?
+  </h2>
+  <p class="text-lg mt-4 text-slate-600">
+    No se trata solo de hacer una página web, sino de construir una experiencia digital que atraiga, convierta y haga crecer tu negocio. Estas son las razones por las que mi enfoque es diferente: 
+  </p>
+</div>
+
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+  {
+    features.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
+          <Icon class="text-white" name={item.icon} />
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>

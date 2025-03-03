@@ -1,0 +1,72 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import PricingCard from "@components/pricing.astro";
+
+const pricing = [
+  {
+    name: "Diseño Web",
+    price: "₡50.000 + iva",
+    popular: false,
+    features: [
+      "Web personalizada",
+      "Diseño responsivo para móviles y tablets",
+      "Optimización para mejor visibilidad",
+      "Experiencia de usuario intuitiva y atractiva",
+    ],
+    button: {
+      text: "Lo quiero!",
+      link: "https://wa.me/50685607835",
+    },
+  },
+  {
+    name: "Mantenimiento Web",
+    price: {
+      monthly: "₡15.00 + iva por mes",
+    },
+    popular: true,
+    features: [
+      "Actualización de información",
+      "Manejo de hosting",
+      "Administración de dominio",
+      "Soporte técnico y mejoras continuas",
+      "Seguridad contra ataques y vulnerabilidades",
+    ],
+    button: {
+      text: "Lo quiero!",
+      link: "https://wa.me/50685607835",
+    },
+  },
+  {
+    name: "Desarrollo de Aplicaciones",
+    price: "A convenir",
+    popular: false,
+    features: [
+      "Aplicaciones web escalables y seguras",
+      "Integraciones con APIs y plataformas externas",
+      "Desarrollo backend y frontend optimizado",
+      "Código limpio y mantenimiento eficiente",
+    ],
+    button: {
+      text: "Lo quiero!",
+      link: "https://wa.me/50685607835",
+    },
+  },
+];
+---
+
+<Layout title="Servicios" description="Servicios brindados por Danicr Diseño y mantenimiento web, desarrollo a la medida de aplicaicones.">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Servicios</Fragment>
+      <Fragment slot="desc">
+        Soluciones digitales a medida para que tu negocio crezca con tecnología de calidad.
+      </Fragment>
+    </Sectionhead>
+
+    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-(--breakpoint-lg) mt-12">
+      {pricing.map((item) => <PricingCard plan={item} />)}
+    </div>
+  </Container>
+</Layout>

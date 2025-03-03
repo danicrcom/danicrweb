@@ -1,0 +1,47 @@
+---
+import { SEO } from "astro-seo";
+import Footer from "@components/footer.astro";
+import Navbar from "@components/navbar/navbar.astro";
+import "@fontsource-variable/inter/index.css";
+import "@fontsource-variable/bricolage-grotesque";
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const { title, description } = Astro.props;
+
+const makeTitle = title;
+const getDescription = description;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
+    <SEO
+      title={makeTitle}
+      description={getDescription}
+      canonical={canonicalURL}
+    />
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+    <style is:global>
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>
